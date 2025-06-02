@@ -65,11 +65,12 @@
 			<span></span>
 		</div>
 		<img src="./assets/logo.png" alt="Logo" class="header__logo">
-		<div class="header-mobile__close-modal">
+		<div class="header-mobile__close-modal mobile-header__search-modal">
 			<span></span>
+			<img src="./assets/search.png" alt="search icon" class="mobile-header__search-icon">
 		</div>
 	</div>
-	<div class="mobile-header__nav-search">
+	<div class="mobile-header__nav-search hide">
 		<form action="" class="mobile-header__form">
 			<label for="header-search-product" class="header__form-search__label">
 				<input class="header__form-search" id="header-search-product" type="search" placeholder="Поиск товара">
@@ -129,27 +130,60 @@
 <section class="main">
 	<div class="container">
 		<div class="main-wrapper">
-			<div class="main__info">
 				<ul class="main__info-dots">
-					<li class="main__info-dots__item selected"></li>
-					<li class="main__info-dots__item"></li>
-					<li class="main__info-dots__item"></li>
-					<li class="main__info-dots__item"></li>
+					<li class="main__info-dots__item selected" data-slide="0"></li>
+					<li class="main__info-dots__item" data-slide="1"></li>
+					<li class="main__info-dots__item" data-slide="2"></li>
+					<li class="main__info-dots__item" data-slide="3"></li>
 				</ul>
-				<h1 class="main__info-title">Тихие вентиляторы обеспечат вам комфорт при работе кондиционера</h1>
-				<p class="main__info-title__description">
-					Lorem Ipsum is simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry's standard dummy text.
-				</p>
-				<a href="./pages/example" class="main__info-link__goToProducts">Перейти в товары</a>
+			<!-- Контейнер для текстовых слайдов -->
+			<div class="main__info swiper text-swiper">
+				<div class="swiper-wrapper">
+					<!-- Слайд 1 -->
+					<div class="swiper-slide">
+						<h1 class="main__info-title">Тихие вентиляторы обеспечат вам комфорт при работе кондиционера</h1>
+						<p class="main__info-title__description">
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						</p>
+						<a href="./pages/example" class="main__info-link__goToProducts">Перейти в товары</a>
+					</div>
+
+					<!-- Слайд 2 -->
+					<div class="swiper-slide">
+						<h1 class="main__info-title">Энергосберегающие технологии</h1>
+						<p class="main__info-title__description">
+							Современные решения для экономии электроэнергии.
+						</p>
+						<a href="./pages/example" class="main__info-link__goToProducts">Перейти в товары</a>
+					</div>
+
+					<!-- Слайд 3 -->
+					<div class="swiper-slide">
+						<h1 class="main__info-title">Тихие вентиляторы обеспечат вам комфорт при работе кондиционера</h1>
+						<p class="main__info-title__description">
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						</p>
+						<a href="./pages/example" class="main__info-link__goToProducts">Перейти в товары</a>
+					</div>
+
+					<!-- Слайд 4 -->
+					<div class="swiper-slide">
+						<h1 class="main__info-title">Энергосберегающие технологии</h1>
+						<p class="main__info-title__description">
+							Современные решения для экономии электроэнергии.
+						</p>
+						<a href="./pages/example" class="main__info-link__goToProducts">Перейти в товары</a>
+					</div>
+				</div>
 			</div>
+
+			<!-- Блок с изображением (остается неизменным) -->
 			<div class="main__image main-images-container">
 				<img src="./assets/main-image.png" alt="main image 1" class="main-image active">
 				<img src="./assets/main-image.png" alt="main image 2" class="main-image">
 				<img src="./assets/main-image.png" alt="main image 3" class="main-image">
 				<img src="./assets/main-image.png" alt="main image 4" class="main-image">
 			</div>
-
 		</div>
 	</div>
 </section>

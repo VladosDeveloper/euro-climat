@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
 	new Swiper('.partners-swiper', {
 		loop: true,
@@ -25,91 +26,41 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
-const dots = document.querySelectorAll('.main__info-dots__item');
-const images = document.querySelectorAll('.main-image');
-const carousel = document.querySelector('.main-images-container'); // Добавляем контейнер карусели
-
-let isDragging = false;
-let startPosition = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
-let currentIndex = 0;
-
-function changeSlide(index) {
-	images.forEach(img => img.classList.remove('active'));
-	dots.forEach(dot => dot.classList.remove('selected'));
-
-	images[index].classList.add('active');
-	dots[index].classList.add('selected');
-	currentIndex = index;
-}
-
-// Обработчики для точек
-dots.forEach((dot, index) => {
-	dot.addEventListener('click', () => {
-		changeSlide(index);
+document.addEventListener('DOMContentLoaded', function() {
+	// Инициализация текстового слайдера
+	const textSwiper = new Swiper('.text-swiper', {
+		allowTouchMove: true, // Отключаем свайп
+		autoHeight: true,     // Автоматическая высота
+		simulateTouch: false,  // Отключаем имитацию касания
+		slidesPerView: 1,
+		centeredSlides: true,
+	});
+	
+	// Обработчики для точек пагинации
+	document.querySelectorAll('.main__info-dots__item').forEach(dot => {
+		dot.addEventListener('click', function() {
+			console.log('clicked');
+			const slideIndex = parseInt(this.getAttribute('data-slide'));
+			
+			// Убираем класс selected у всех точек
+			document.querySelectorAll('.main__info-dots__item').forEach(item => {
+				item.classList.remove('selected');
+			});
+			
+			// Добавляем класс selected текущей точке
+			this.classList.add('selected');
+			
+			// Переключаем слайд
+			textSwiper.slideTo(slideIndex);
+			
+			// // Переключаем изображение (если нужно)
+			// const images = document.querySelectorAll('.main-image');
+			// images.forEach(img => img.classList.remove('active'));
+			// images[slideIndex].classList.add('active');
+		});
 	});
 });
 
-// Добавляем обработчики свайпа
-carousel.addEventListener('mousedown', dragStart);
-carousel.addEventListener('touchstart', dragStart);
-carousel.addEventListener('mouseup', dragEnd);
-carousel.addEventListener('touchend', dragEnd);
-carousel.addEventListener('mouseleave', dragEnd);
-carousel.addEventListener('mousemove', drag);
-carousel.addEventListener('touchmove', drag);
-
-function dragStart(e) {
-	if (e.type === 'touchstart') {
-		startPosition = e.touches[0].clientX;
-	} else {
-		startPosition = e.clientX;
-		e.preventDefault(); // Предотвращаем выделение текста
-	}
-
-	isDragging = true;
-	carousel.style.cursor = 'grabbing';
-	animationID = requestAnimationFrame(animation);
-}
-
-function drag(e) {
-	if (!isDragging) return;
-	const currentPosition = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-	const diff = currentPosition - startPosition;
-
-	if (Math.abs(diff) > 50) { // Порог для смены слайда
-		if (diff > 0 && currentIndex > 0) {
-			// Свайп вправо
-			changeSlide(currentIndex - 1);
-			resetDrag();
-		} else if (diff < 0 && currentIndex < images.length - 1) {
-			// Свайп влево
-			changeSlide(currentIndex + 1);
-			resetDrag();
-		}
-	}
-}
-
-function dragEnd() {
-	isDragging = false;
-	cancelAnimationFrame(animationID);
-	carousel.style.cursor = 'grab';
-	resetDrag();
-}
-
-function resetDrag() {
-	isDragging = false;
-	startPosition = 0;
-	currentTranslate = 0;
-	prevTranslate = 0;
-}
-
-function animation() {
-	if (isDragging) {
-		requestAnimationFrame(animation);
-	}
-}
 
 // Находим все блоки счетчиков на странице
 const allCounters = document.querySelectorAll('.sales__element__user-actions');
@@ -164,14 +115,25 @@ resetForm.addEventListener('click', (e) => {
 const openNavBar = document.querySelector('.header-mobile__open-modal')
 const closeNavBar = document.querySelector('.header-mobile__close-modal')
 const navBar = document.querySelector('.mobile-header__modal-navigation')
+const headerSearch = document.querySelector('.mobile-header__nav-search')
+const imageSearch = document.querySelector('.mobile-header__search-icon')
 
 
 openNavBar.addEventListener('click', () => {
-	navBar.classList.remove('hidden');
+	navBar.classList.toggle('hidden');
 })
 
 closeNavBar.addEventListener('click', () => {
-	navBar.classList.add('hidden');
+	if (closeNavBar.classList.contains('mobile-header__search-modal')) {
+		headerSearch.classList.remove('hide');
+		closeNavBar.classList.remove('mobile-header__search-modal');
+		imageSearch.style.display = 'none';
+	} else {
+		headerSearch.classList.add('hide');
+		closeNavBar.classList.add('mobile-header__search-modal');
+		imageSearch.style.display = 'block';
+	}
+	// navBar.classList.add('hidden');
 })
 
 const likeBtn = document.querySelectorAll('.svg-heart')

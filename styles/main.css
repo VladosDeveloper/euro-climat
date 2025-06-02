@@ -16,6 +16,27 @@
     font-family: "Segoe UI", sans-serif;
 }
 
+/*for swiper*/
+.text-swiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.text-swiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background-color: transparent;
+}
+.text-swiper .swiper-pagination,
+.text-swiper .swiper-button-next,
+.text-swiper .swiper-button-prev {
+    display: none;
+}
+/*------*/
+
+
 .main-wrapper {
     padding: 0 5px;
     position: relative;
@@ -28,12 +49,17 @@
 }
 
 .main__info {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .main__info-dots {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    z-index: 333;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -135,7 +161,7 @@
 
 @media screen and (max-width: 768px) {
     .main {
-        min-height: 70vh;
+        min-height: 100vh;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
         background-size: cover;
         background-position: center;
@@ -164,10 +190,16 @@
         align-items: center;
         text-align: center;
     }
+
+    .text-swiper .swiper-slide{
+        align-items: center;
+    }
     .main__info-dots {
-        order: 1;
+        bottom: -110%;
+        left: 50%;
+        translate: -50% 0;
         margin-bottom: 0;
-        margin-top: 32px;
+        z-index: 1;
     }
 }
 
