@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 	new Swiper('.partners-swiper', {
 		loop: true,
-		slidesPerView: 'auto',
+		slidesPerView: 4,
 		centeredSlides: true,
 		spaceBetween: 30,
 		navigation: {
@@ -38,7 +38,7 @@ let currentIndex = 0;
 function changeSlide(index) {
 	images.forEach(img => img.classList.remove('active'));
 	dots.forEach(dot => dot.classList.remove('selected'));
-	
+
 	images[index].classList.add('active');
 	dots[index].classList.add('selected');
 	currentIndex = index;
@@ -67,7 +67,7 @@ function dragStart(e) {
 		startPosition = e.clientX;
 		e.preventDefault(); // Предотвращаем выделение текста
 	}
-	
+
 	isDragging = true;
 	carousel.style.cursor = 'grabbing';
 	animationID = requestAnimationFrame(animation);
@@ -77,7 +77,7 @@ function drag(e) {
 	if (!isDragging) return;
 	const currentPosition = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
 	const diff = currentPosition - startPosition;
-	
+
 	if (Math.abs(diff) > 50) { // Порог для смены слайда
 		if (diff > 0 && currentIndex > 0) {
 			// Свайп вправо
@@ -110,12 +110,6 @@ function animation() {
 		requestAnimationFrame(animation);
 	}
 }
-
-// let currentIndex = 0;
-// setInterval(() => {
-// 	currentIndex = (currentIndex + 1) % images.length;
-// 	changeSlide(currentIndex);
-// }, 5000);
 
 // Находим все блоки счетчиков на странице
 const allCounters = document.querySelectorAll('.sales__element__user-actions');
@@ -181,21 +175,10 @@ closeNavBar.addEventListener('click', () => {
 })
 
 const likeBtn = document.querySelectorAll('.svg-heart')
-let isColored = false;
 
 likeBtn.forEach((btn) => {
 	btn.addEventListener('click', function() {
-		console.log('clicked');
-		const path = this.querySelector('path');
-		
-		if (isColored) {
-			btn.classList.add('active');
-		} else {
-			btn.classList.remove('active');
-		}
-		
-		
-		isColored = !isColored;
+		btn.classList.toggle('active');
 	});
 })
 

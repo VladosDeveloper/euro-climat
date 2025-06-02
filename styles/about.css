@@ -35,3 +35,9 @@
 .linkTo__aboutPage {
     margin-top: 0;
 }
+
+.linkTo__aboutPage:hover {
+    color: #dc092e;
+    background: transparent;
+    border: 1px solid #dc092e;
+}

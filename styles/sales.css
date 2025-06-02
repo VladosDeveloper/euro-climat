@@ -155,11 +155,25 @@
     width: 100%;
 }
 
-.sales__element__user-actions__controls button {
+.decrement-btn, .increment-btn {
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 33px;
+    height: 33px;
+    transition: 0.2s linear;
+}
+
+.decrement-btn:hover, .increment-btn:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dc092e;
+    object-fit: cover;
+    opacity: 1;
+    border-radius: 6px;
+    color: white;
 }
 
 .sales__element__user-actions__controls > :where(:first-child, :last-child) {
@@ -193,4 +207,10 @@
     border-radius: 10px;
     border: none;
     background-color: transparent;
+    transition: 0.2s linear;
+}
+
+.sales__element__user-actions__add-to-bucket:hover {
+    color: white;
+    background-color: #dc092e;
 }

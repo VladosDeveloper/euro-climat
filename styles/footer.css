@@ -86,11 +86,17 @@
     width: min(196px, 100%);
     min-height: 48px;
     background: #dc092e;
-    border: none;
+    border: 1px solid #dc092e;
     font-weight: 700;
     font-size: 16px;
     line-height: 1;
     color: #fff;
+    transition: 0.2s linear;
+}
+
+.footer-help__btn:hover {
+    background: transparent;
+    color: #dc092e;
 }
 
 .footer-help__text {
