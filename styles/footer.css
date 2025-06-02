@@ -1,0 +1,141 @@
+.footer {
+    font-family: "Segoe UI", sans-serif;
+    width: min(1920px, 100%);
+    margin: 96px auto 0;
+    min-height: 360px;
+    background-image: url("../assets/sales-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 64px;
+    overflow: hidden;
+}
+
+.footer__wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    column-gap: 20px;
+    justify-items: center;
+    height: 100%;
+}
+
+.footer-logo__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.footer-logo {
+    align-self: flex-start;
+    width: 60%;
+    height: 25%;
+    object-fit: contain;
+    /*margin-bottom: 84px;*/
+}
+
+.footer-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.21;
+    color: #231f20;
+    margin-bottom: 20px;
+}
+
+.footer__text,
+.footer__text-for-mobile{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #787878;
+}
+
+.footer__text-for-mobile {
+    display: none;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-list-item {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.footer-list-item a {
+    text-decoration: none;
+    color: #787878;
+}
+
+.footer-help {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+}
+
+.footer-help__btn {
+    border-radius: 10px;
+    width: min(196px, 100%);
+    min-height: 48px;
+    background: #dc092e;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    color: #fff;
+}
+
+.footer-help__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    color: #787878;
+    margin-top: 14px;
+}
+
+@media screen and (max-width: 868px) {
+    .footer {
+        padding-bottom: 38px;
+    }
+    .footer__text {
+        display: none;
+    }
+    .footer__text-for-mobile {
+        display: block;
+    }
+    .footer__wrapper {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        width: 100%;
+        column-gap: 0;
+        row-gap: 32px;
+    }
+
+    .footer-logo {
+        align-self: center;
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .footer-logo__wrapper {
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        width: 80%;
+    }
+
+    .footer-help {
+        grid-row: 2/2;
+        width: min(196px, 100%);
+    }
+}

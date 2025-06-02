@@ -1,0 +1,37 @@
+.about {
+    font-family: "Segoe UI", sans-serif;
+    margin-top: 134px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.about-title {
+    font-weight: 700;
+    font-size: clamp(24px, calc(24px + (32 - 24) * ((100vw - 360px) / (1920 - 360))), 32px);
+    line-height: 1.21;
+    text-align: center;
+    color: #231f20;
+}
+
+.about-description__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.about-description__wrapper p {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+    color: #787878;
+}
+
+.linkTo__aboutPage {
+    margin-top: 0;
+}
