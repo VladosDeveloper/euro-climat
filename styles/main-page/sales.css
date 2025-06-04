@@ -21,7 +21,7 @@
     height: 80vh;
     top: 50%;
     left: 0;
-    background-image: url('../assets/sales-background.png');
+    background-image: url('../../assets/sales-background.png');
     background-size: contain;
     /*background-position: center;*/
     background-repeat: no-repeat;
@@ -33,7 +33,6 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 41px;
-    padding: 0 5px;
 }
 
 .sales-title {
@@ -52,12 +51,15 @@
     text-decoration: underline;
     text-decoration-skip-ink: none;
     color: #231f20;
+    padding-right: 5px;
 }
 
 .sales__element-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(306px, 1fr));
+    gap: 24px;
+    align-items: center;
+    justify-items: center;
 }
 
 .sales__element {
@@ -75,11 +77,18 @@
 }
 
 .add-to-favourite-icon {
+    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    justify-content: space-between;
-    gap: 8px;
     color: red;
+}
+
+.svg-heart {
+    position: absolute;
+    right: -2%;
+    top: 0;
 }
 
 .svg-heart.active .heart-path {
@@ -98,6 +107,7 @@
     margin-bottom: 14px;
     margin-top: 15px;
     user-select: none;
+    width: 80%;
 }
 
 .sales__element-description {
@@ -213,4 +223,39 @@
 .sales__element__user-actions__add-to-bucket:hover {
     color: white;
     background-color: #dc092e;
+}
+
+@media screen and (max-width: 851px) {
+    .sales {
+        margin-top: 49px;
+    }
+    .sales__element-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+        gap: 24px;
+        align-items: center;
+        justify-items: center;
+    }
+
+}
+
+@media screen and (max-width: 560px) {
+    .sales__element__user-actions__control {
+        font-size: 14px;
+    }
+    .sales__element__user-actions__add-to-bucket {
+        font-size: 12px;
+    }
+    .sales__element-price {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    .sales__element-description {
+        font-size: 10px;
+    }
+    .sales__element-image {
+        width: 72%;
+    }
+    .sales__heading-wrapper {
+        align-items: flex-end;
+    }
 }

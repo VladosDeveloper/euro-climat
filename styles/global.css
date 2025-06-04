@@ -1,14 +1,25 @@
-@import "normolize.css";
-@import "container.css";
-@import "header.css";
-@import "navigation.css";
-@import "main.css";
-@import "climate-equipment.css";
-@import "sales.css";
-@import "advantages.css";
-@import "about.css";
-@import "partners.css";
-@import "popular-supplies.css";
-@import "choose-conditioner.css";
-@import "news.css";
-@import "footer.css";
+/*   common styles   */
+@import "common/normolize.css";
+@import "common/container.css";
+@import "common/header.css";
+@import "common/footer.css";
+/*--------------------------*/
+
+
+/*  main page styles  */
+@import "main-page/navigation.css";
+@import "main-page/main.css";
+@import "main-page/climate-equipment.css";
+@import "main-page/sales.css";
+@import "main-page/advantages.css";
+@import "main-page/about.css";
+@import "main-page/partners.css";
+@import "main-page/popular-supplies.css";
+@import "main-page/choose-conditioner.css";
+@import "main-page/news.css";
+/*--------------------------*/
+
+
+/*  catalog page styles  */
+@import "catalog-page/breadcrumbs.css";
+@import "catalog-page/product-catalog.css";

@@ -2,7 +2,7 @@
     position: relative;
     width: min(1920px, 100%);
     min-height: 663px;
-    background-image: url("../assets/main-block-background.png");
+    background-image: url("../../assets/main-block-background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -169,6 +169,8 @@
     }
     .main__info-title {
         font-size: 26px;
+        margin-top: 24px;
+        padding: 0 10px;
     }
     .main-wrapper {
         padding: 0 5px;
@@ -193,6 +195,7 @@
 
     .text-swiper .swiper-slide{
         align-items: center;
+        padding: 0 25px;
     }
     .main__info-dots {
         bottom: -110%;
@@ -201,13 +204,21 @@
         margin-bottom: 0;
         z-index: 1;
     }
+
 }
 
 @media screen and (max-width: 586px) {
+    .main {
+        padding-bottom: 120px;
+    }
     .main__image {
         position: relative;
         aspect-ratio: 1/1;
-        width: 40%;
-        overflow: hidden;
+        width: 70%;
+        margin-top: 64px;
+        /*overflow: hidden;*/
+    }
+    .main__info-link__goToProducts {
+        width: 100%;
     }
 }

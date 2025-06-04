@@ -2,7 +2,7 @@
     position: relative;
     width: min(1920px, 100%);
     min-height: 100vh;
-    background-image: url("../assets/main-block-background.png");
+    background-image: url("../../assets/main-block-background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -185,7 +185,7 @@
 @media screen and (max-width: 768px) {
     .choose-conditioner {
         clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
-        padding-bottom: 63px;
+        padding: 96px 10px 64px;
     }
     .choose-conditioner__main-content-wrapper {
         grid-template-columns: 1fr;

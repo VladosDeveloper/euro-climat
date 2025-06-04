@@ -43,6 +43,7 @@
     width: 306px;
     background-color: #f7f7f7;
     border-radius: 10px;
+    user-select: none;
 }
 
 .partner-list__prev-item, .partner-list__next-item {

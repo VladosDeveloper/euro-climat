@@ -41,3 +41,21 @@
     background: transparent;
     border: 1px solid #dc092e;
 }
+
+@media screen and (max-width: 768px) {
+    .about {
+        margin-top: 65px;
+        padding: 0 14px;
+        gap: 20px;
+    }
+    .about-title {
+        text-align: left;
+    }
+    .about-description__wrapper p {
+        font-size: 12px;
+        text-align: left;
+    }
+    .linkTo__aboutPage {
+        width: 100%;
+    }
+}

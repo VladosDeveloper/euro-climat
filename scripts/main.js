@@ -1,32 +1,59 @@
+const openNavBar = document.querySelector('.header-mobile__open-modal')
+const closeNavBar = document.querySelector('.header-mobile__close-modal')
+const navBar = document.querySelector('.mobile-header__modal-navigation')
+const headerSearch = document.querySelector('.mobile-header__nav-search')
+const imageSearch = document.querySelector('.mobile-header__search-icon')
+const confirmForm = document.querySelector('.choose-conditioner__confirm-setting__block__button-confirm');
+const resetForm = document.querySelector('.choose-conditioner__confirm-setting__block__button-reset');
+const form = document.querySelector('.choose-conditioner__form')
+const likeBtn = document.querySelectorAll('.svg-heart')
 
-document.addEventListener('DOMContentLoaded', function () {
-	new Swiper('.partners-swiper', {
-		loop: true,
-		slidesPerView: 4,
-		centeredSlides: true,
-		spaceBetween: 30,
-		navigation: {
-			nextEl: '.partner-list__next-item',
-			prevEl: '.partner-list__prev-item',
+new Swiper('.partners-swiper', {
+	loop: true,
+	slidesPerView: 4,
+	centeredSlides: true,
+	spaceBetween: 30,
+	navigation: {
+		nextEl: '.partner-list__next-item',
+		prevEl: '.partner-list__prev-item',
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 2,
+			spaceBetween: 20
 		},
-		breakpoints: {
-			320: {
-				slidesPerView: 2,
-				spaceBetween: 20
-			},
-			768: {
-				slidesPerView: 3,
-				spaceBetween: 30
-			},
-			1024: {
-				slidesPerView: 4,
-				spaceBetween: 40
-			}
+		768: {
+			slidesPerView: 3,
+			spaceBetween: 30
+		},
+		1024: {
+			slidesPerView: 4,
+			spaceBetween: 40
 		}
-	});
+	}
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+const startWidth = window.innerWidth;
+const title = document.getElementById('popular-supplies__title')
+if (title) {
+	window.addEventListener('resize', (e) => {
+		const currentWidth = e.currentTarget.innerWidth
+		checkSize(currentWidth)
+		
+	})
+	checkSize(startWidth)
+}
+
+
+function checkSize(size) {
+	if (size <= 560) {
+		title.innerText = 'Популярное'
+	} else {
+		title.innerText = 'Популярные товары'
+	}
+}
+
+document.addEventListener('DOMContentLoaded', function () {
 	// Инициализация текстового слайдера
 	const textSwiper = new Swiper('.text-swiper', {
 		allowTouchMove: true, // Отключаем свайп
@@ -38,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	// Обработчики для точек пагинации
 	document.querySelectorAll('.main__info-dots__item').forEach(dot => {
-		dot.addEventListener('click', function() {
+		dot.addEventListener('click', function () {
 			console.log('clicked');
 			const slideIndex = parseInt(this.getAttribute('data-slide'));
 			
@@ -61,87 +88,88 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
-
-// Находим все блоки счетчиков на странице
-const allCounters = document.querySelectorAll('.sales__element__user-actions');
-
-allCounters.forEach(counterBlock => {
-	// Элементы текущего счетчика
-	const decrementBtn = counterBlock.querySelector('.decrement-btn');
-	const incrementBtn = counterBlock.querySelector('.increment-btn');
-	const counter = counterBlock.querySelector('.counter');
-	const addToCartBtn = counterBlock.querySelector('.sales__element__user-actions__add-to-bucket');
+export const counter = () => {
+	// Находим все блоки счетчиков на странице
+	const allCounters = document.querySelectorAll('.sales__element__user-actions');
 	
-	let count = 1; // Начальное значение
-	
-	// Обновление отображаемого значения
-	function updateCounter() {
-		counter.textContent = count;
-		// Можно добавить логику для кнопки "В корзину"
-		// addToCartBtn.textContent = count > 0 ? `В корзину (${count})` : 'В корзину';
-	}
-	
-	// Уменьшение
-	decrementBtn.addEventListener('click', () => {
-		if (count > 1) { // Минимальное значение 1
-			count--;
-			updateCounter();
+	allCounters.forEach(counterBlock => {
+		// Элементы текущего счетчика
+		const decrementBtn = counterBlock.querySelector('.decrement-btn');
+		const incrementBtn = counterBlock.querySelector('.increment-btn');
+		const counter = counterBlock.querySelector('.counter');
+		const addToCartBtn = counterBlock.querySelector('.sales__element__user-actions__add-to-bucket');
+		
+		let count = 1; // Начальное значение
+		
+		// Обновление отображаемого значения
+		function updateCounter() {
+			counter.textContent = count;
+			// Можно добавить логику для кнопки "В корзину"
+			// addToCartBtn.textContent = count > 0 ? `В корзину (${count})` : 'В корзину';
 		}
-	});
-	
-	// Увеличение
-	incrementBtn.addEventListener('click', () => {
-		count++;
+		
+		// Уменьшение
+		decrementBtn.addEventListener('click', () => {
+			if (count > 1) { // Минимальное значение 1
+				count--;
+				updateCounter();
+			}
+		});
+		
+		// Увеличение
+		incrementBtn.addEventListener('click', () => {
+			count++;
+			updateCounter();
+		});
+		
+		// Инициализация
 		updateCounter();
 	});
+}
+
+confirmForm?.addEventListener('click', (e) => {
+	e.preventDefault();
+	form.reset()
+})
+resetForm?.addEventListener('click', (e) => {
+	e.preventDefault();
+	form.reset()
+})
+
+export const toggleVisibilityModal = () => {
 	
-	// Инициализация
-	updateCounter();
-});
+	openNavBar.addEventListener('click', () => {
+		navBar.classList.toggle('hidden');
+	})
+	
+	closeNavBar.addEventListener('click', () => {
+		if (closeNavBar.classList.contains('mobile-header__search-modal')) {
+			headerSearch.classList.remove('hide');
+			closeNavBar.classList.remove('mobile-header__search-modal');
+			imageSearch.style.display = 'none';
+		} else {
+			headerSearch.classList.add('hide');
+			closeNavBar.classList.add('mobile-header__search-modal');
+			imageSearch.style.display = 'block';
+		}
+	})
+	
+}
 
-const confirmForm = document.querySelector('.choose-conditioner__confirm-setting__block__button-confirm');
-const resetForm = document.querySelector('.choose-conditioner__confirm-setting__block__button-reset');
-const form = document.querySelector('.choose-conditioner__form')
-
-confirmForm.addEventListener('click', (e) => {
-	e.preventDefault();
-	form.reset()
-})
-resetForm.addEventListener('click', (e) => {
-	e.preventDefault();
-	form.reset()
-})
-
-const openNavBar = document.querySelector('.header-mobile__open-modal')
-const closeNavBar = document.querySelector('.header-mobile__close-modal')
-const navBar = document.querySelector('.mobile-header__modal-navigation')
-const headerSearch = document.querySelector('.mobile-header__nav-search')
-const imageSearch = document.querySelector('.mobile-header__search-icon')
+export const setSvgButtonColor = () => {
+	likeBtn.forEach((btn) => {
+		btn.addEventListener('click', function () {
+			btn.classList.toggle('active');
+		});
+	})
+}
 
 
-openNavBar.addEventListener('click', () => {
-	navBar.classList.toggle('hidden');
-})
 
-closeNavBar.addEventListener('click', () => {
-	if (closeNavBar.classList.contains('mobile-header__search-modal')) {
-		headerSearch.classList.remove('hide');
-		closeNavBar.classList.remove('mobile-header__search-modal');
-		imageSearch.style.display = 'none';
-	} else {
-		headerSearch.classList.add('hide');
-		closeNavBar.classList.add('mobile-header__search-modal');
-		imageSearch.style.display = 'block';
-	}
-	// navBar.classList.add('hidden');
-})
 
-const likeBtn = document.querySelectorAll('.svg-heart')
+setSvgButtonColor();
+toggleVisibilityModal();
+counter();
 
-likeBtn.forEach((btn) => {
-	btn.addEventListener('click', function() {
-		btn.classList.toggle('active');
-	});
-})
 
 

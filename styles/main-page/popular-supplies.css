@@ -6,3 +6,9 @@
 .popular-supplies__controls {
     padding: 5px 8px;
 }
+
+@media screen and (max-width: 768px) {
+    .popular-supplies {
+        margin-top: 73px;
+    }
+}

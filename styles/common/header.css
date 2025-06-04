@@ -33,6 +33,14 @@
     padding: 12px 0 13px 12px;
 }
 
+.header__form-search::placeholder {
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: #787878;
+}
+
 .header__form-search__icon {
     position: absolute;
     top: 50%;
@@ -111,6 +119,7 @@
     padding: 0;
     border-top: none;
     transition: 0.2s linear;
+    overflow: hidden;
 }
 
 .mobile-header__form {

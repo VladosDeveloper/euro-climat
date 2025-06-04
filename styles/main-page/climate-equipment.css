@@ -71,7 +71,9 @@
 @media screen and (max-width: 851px) {
     .climate-equipment__wrapper {
         grid-template-columns: 1fr 1fr;
+        gap: 14px 8px;
         grid-auto-rows: auto;
+        margin-top: 24px;
     }
     .climate-equipment__item {
         display: flex;

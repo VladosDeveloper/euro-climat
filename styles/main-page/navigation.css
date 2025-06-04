@@ -22,6 +22,7 @@
     border: 1px solid rgba(41, 200, 255, 0.25);
     border-radius: 10px;
     background-color: transparent;
+    text-decoration: none;
 }
 
 .mobile-header__modal-buttonCatalog {
