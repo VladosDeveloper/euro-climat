@@ -38,11 +38,18 @@
     width: 100%;
     border: 1px solid rgba(120, 120, 120, 0.25);
     border-radius: 10px;
-    height: 48px;
-    overflow: hidden;
     padding: 11px 16px 0;
     transition: all 0.2s linear;
+    height: 48px;
+    overflow: hidden;
 }
+.product-catalog__filters-element__toggle {
+    transition: 0.2s linear;
+}
+.product-catalog__filters-element__toggle:hover {
+    rotate: 45deg;
+}
+
 
 .product-catalog__filters-element.active {
     height: 100%;
@@ -51,7 +58,6 @@
     .product-catalog__filters-element__title {
         color: #dc092e;
     }
-
     .product-catalog__filters-element__toggle {
         rotate: 45deg;
         color: #dc092e;
@@ -165,6 +171,12 @@
     border-radius: 10px;
     padding: 17px 0;
     background: #dc092e;
+    transition: 0.2s linear;
+}
+
+.product-catalog__filters__reset:hover {
+    background: transparent;
+    color: #dc092e;
 }
 
 .product-catalog__products {
@@ -218,6 +230,11 @@
     border-radius: 4px;
     background: #f7f7f7;
     cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.product-catalog__products__pagination-numbers__list-item:hover {
+    background: #dbdbdb;
 }
 
 .product-catalog__products__pagination-numbers__list-item.active {
@@ -241,6 +258,20 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 1;
+
+    span {
+        margin-right: 0;
+        transition: 0.1s linear;
+    }
+}
+
+.product-catalog__products__pagination-button__prev:hover span {
+    margin-right: 6px;
+    transition: 0.1s linear;
+}
+.product-catalog__products__pagination-button__next:hover span {
+    margin-left: 6px;
+    transition: 0.1s linear;
 }
 
 
