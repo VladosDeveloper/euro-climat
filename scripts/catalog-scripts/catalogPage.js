@@ -45,28 +45,49 @@ closeCatalogModal.addEventListener('click', (e) => {
 	filterModal.classList.add('hidden-modal');
 })
 
+
 pagination()
 
 function pagination() {
+	const prevPage = document.querySelector('.product-catalog__products__pagination-button__prev');
+	const nextPage = document.querySelector('.product-catalog__products__pagination-button__next');
 	const totalPages = 21;
 	let currentPage = 1;
+	
+	if (currentPage >= 1) {
+		prevPage.addEventListener('click', (e) => {
+			if (currentPage === 1) return
+			currentPage--
+			onPageClick(currentPage)
+		})
+	}
+	if (currentPage < totalPages) {
+		nextPage.addEventListener('click', (e) => {
+			if (currentPage === totalPages) return
+			currentPage++
+			onPageClick(currentPage)
+		})
+	}
+	
+	function onPageClick(page) {
+		currentPage = page;
+		renderPagination();
+	}
 	
 	function renderPagination() {
 		const pagination = document.querySelector('.product-catalog__products__pagination-numbers__list');
 		pagination.innerHTML = '';
 		
+		const isMobile = window.innerWidth < 960;
+		
 		const createButton = (page) => {
 			const btn = document.createElement('button');
 			btn.classList.add('product-catalog__products__pagination-numbers__list-item');
+			btn.innerText = page;
 			if (page === currentPage) {
 				btn.classList.add('active');
 			}
-			btn.innerText = page;
-			btn.disabled = page === currentPage;
-			btn.onclick = (e) => {
-				currentPage = page;
-				renderPagination();
-			};
+			btn.onclick = () => onPageClick(page);
 			return btn;
 		};
 		
@@ -81,31 +102,49 @@ function pagination() {
 			pagination.appendChild(createButton(page));
 		};
 		
-		// Показываем первую страницу всегда
-		showPage(1);
-		
-		// Левая часть
-		if (currentPage > 3) {
-			addDots();
-			for (let i = currentPage - 1; i <= currentPage + 1 && i < totalPages - 3; i++) {
-				if (i > 1) showPage(i);
-			}
-		} else {
-			for (let i = 2; i <= 4; i++) {
+		const showRange = (start, end) => {
+			for (let i = start; i <= end; i++) {
 				showPage(i);
 			}
+		};
+		
+		if (isMobile) {
+			if (currentPage < 3) {
+				showRange(1, 3);
+				addDots();
+			} else {
+				if (window.innerWidth > 450) {
+					showPage(1)
+					addDots();
+				}
+				// Центр текущей страницы
+				const start = Math.max(currentPage -1,1);
+				const end = Math.min(currentPage+1, totalPages - 3);
+				showRange(start, end);
+				if (currentPage < 17) {
+					addDots();
+				}
+			}
+		} else {
+			if (currentPage <= 3) {
+				showRange(1, 4);
+				addDots();
+			} else {
+				showPage(1)
+				addDots();
+				const start = Math.max(currentPage - 1, 3);
+				const end = Math.min(currentPage + 1, totalPages - 3);
+				showRange(start, end);
+				if (currentPage < 17) {
+					addDots();
+				}
+				
+			}
 		}
 		
-		// Правые точки
-		if (currentPage < totalPages - 4) {
-			addDots();
-		}
-		
-		// Последние 4 страницы
-		for (let i = totalPages - 3; i <= totalPages; i++) {
-			showPage(i);
-		}
+		showRange(totalPages - 2, totalPages);
 	}
 	
+	window.addEventListener('resize', renderPagination);
 	renderPagination();
 }

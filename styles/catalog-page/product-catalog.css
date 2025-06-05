@@ -452,26 +452,22 @@ body.modal-open {
     }
 
     .product-catalog__products__pagination-numbers__list {
-        display: none;
+        display: flex;
     }
 
     .product-catalog__products__pagination-numbers__list-for-mobile {
-        display: flex;
+        display: none;
         justify-content: center;
     }
 }
 
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 850px) {
     .product-catalog__wrapper {
         grid-template-columns: 1fr;
     }
 
     .product-catalog__filters {
         display: none;
-    }
-
-    .product-catalog__navigation-for-mobile__wrapper {
-        display: flex;
     }
 }
 
