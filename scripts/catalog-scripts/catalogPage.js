@@ -45,3 +45,67 @@ closeCatalogModal.addEventListener('click', (e) => {
 	filterModal.classList.add('hidden-modal');
 })
 
+pagination()
+
+function pagination() {
+	const totalPages = 21;
+	let currentPage = 1;
+	
+	function renderPagination() {
+		const pagination = document.querySelector('.product-catalog__products__pagination-numbers__list');
+		pagination.innerHTML = '';
+		
+		const createButton = (page) => {
+			const btn = document.createElement('button');
+			btn.classList.add('product-catalog__products__pagination-numbers__list-item');
+			if (page === currentPage) {
+				btn.classList.add('active');
+			}
+			btn.innerText = page;
+			btn.disabled = page === currentPage;
+			btn.onclick = (e) => {
+				currentPage = page;
+				renderPagination();
+			};
+			return btn;
+		};
+		
+		const addDots = () => {
+			const dots = document.createElement('li');
+			dots.classList.add('product-catalog__products__pagination-numbers__list-item');
+			dots.innerText = '...';
+			pagination.appendChild(dots);
+		};
+		
+		const showPage = (page) => {
+			pagination.appendChild(createButton(page));
+		};
+		
+		// Показываем первую страницу всегда
+		showPage(1);
+		
+		// Левая часть
+		if (currentPage > 3) {
+			addDots();
+			for (let i = currentPage - 1; i <= currentPage + 1 && i < totalPages - 3; i++) {
+				if (i > 1) showPage(i);
+			}
+		} else {
+			for (let i = 2; i <= 4; i++) {
+				showPage(i);
+			}
+		}
+		
+		// Правые точки
+		if (currentPage < totalPages - 4) {
+			addDots();
+		}
+		
+		// Последние 4 страницы
+		for (let i = totalPages - 3; i <= totalPages; i++) {
+			showPage(i);
+		}
+	}
+	
+	renderPagination();
+}

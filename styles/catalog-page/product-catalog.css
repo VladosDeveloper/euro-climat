@@ -43,9 +43,11 @@
     height: 48px;
     overflow: hidden;
 }
+
 .product-catalog__filters-element__toggle {
     transition: 0.2s linear;
 }
+
 .product-catalog__filters-element__toggle:hover {
     rotate: 45deg;
 }
@@ -58,6 +60,7 @@
     .product-catalog__filters-element__title {
         color: #dc092e;
     }
+
     .product-catalog__filters-element__toggle {
         rotate: 45deg;
         color: #dc092e;
@@ -204,7 +207,7 @@
 }
 
 .product-catalog__products__pagination-numbers__list,
-.product-catalog__products__pagination-numbers__list-for-mobile{
+.product-catalog__products__pagination-numbers__list-for-mobile {
     display: flex;
     gap: 12px;
     align-items: center;
@@ -231,6 +234,7 @@
     background: #f7f7f7;
     cursor: pointer;
     transition: 0.2s linear;
+    border: none
 }
 
 .product-catalog__products__pagination-numbers__list-item:hover {
@@ -269,6 +273,7 @@
     margin-right: 6px;
     transition: 0.1s linear;
 }
+
 .product-catalog__products__pagination-button__next:hover span {
     margin-left: 6px;
     transition: 0.1s linear;
@@ -334,6 +339,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     span {
         display: inline-block;
         width: 26px;
@@ -344,6 +350,7 @@
         position: relative;
         cursor: pointer;
     }
+
     span::after, span::before {
         content: "";
         display: inline-block;
@@ -357,6 +364,7 @@
         right: 20%;
         z-index: 451125125125;
     }
+
     span::before {
         rotate: -45deg;
     }
@@ -399,6 +407,7 @@ body.modal-open {
         column-gap: 4px;
         row-gap: 14px;
     }
+
     .product-catalog__products__pagination-wrapper {
         grid-template-columns: 80px 1fr 80px;
         border: 1px solid black;
@@ -408,13 +417,14 @@ body.modal-open {
         height: 100%;
     }
 
-    .product-catalog__products__pagination-numbers__list{
+    .product-catalog__products__pagination-numbers__list {
         justify-content: center;
     }
 
     .product-catalog__products__pagination-button__prev {
         grid-row: 1 / 1;
     }
+
     .product-catalog__products__pagination-numbers__list {
         grid-row: span 2;
     }
@@ -440,9 +450,11 @@ body.modal-open {
         height: 2em;
         font-size: 12px;
     }
+
     .product-catalog__products__pagination-numbers__list {
         display: none;
     }
+
     .product-catalog__products__pagination-numbers__list-for-mobile {
         display: flex;
         justify-content: center;
@@ -453,9 +465,11 @@ body.modal-open {
     .product-catalog__wrapper {
         grid-template-columns: 1fr;
     }
+
     .product-catalog__filters {
         display: none;
     }
+
     .product-catalog__navigation-for-mobile__wrapper {
         display: flex;
     }
