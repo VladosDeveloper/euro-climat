@@ -469,6 +469,9 @@ body.modal-open {
     .product-catalog__filters {
         display: none;
     }
+    .product-catalog__navigation-for-mobile__wrapper {
+        display: flex;
+    }
 }
 
 @media screen and (max-width: 571px) {

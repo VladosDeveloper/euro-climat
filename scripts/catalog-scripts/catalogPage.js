@@ -1,6 +1,6 @@
 const filterElement = document.querySelectorAll('.product-catalog__filters-element');
 const openCloseElements = document.querySelectorAll('.product-catalog__filters-element__toggle');
-const resetAllFilters = document.querySelector('.product-catalog__filters__reset');
+const resetAllFilters = document.querySelectorAll('.product-catalog__filters__reset');
 const filters = document.querySelectorAll('.custom-checkbox input');
 const paginationItems = document.querySelectorAll('.product-catalog__products__pagination-numbers__list-item');
 const openFilterBtn = document.querySelector('.product-catalog__navigation-for-mobile__open-filters')
@@ -13,12 +13,14 @@ openCloseElements.forEach((openCloseElement, index) => {
 	})
 })
 
-resetAllFilters.addEventListener('click', (e) => {
-	console.log('cls')
-	filters.forEach((filterElement) => {
-		filterElement.checked = false;
+resetAllFilters.forEach(btn => {
+	btn.addEventListener('click', (e) => {
+		filters.forEach((filterElement) => {
+			filterElement.checked = false;
+		})
 	})
 })
+
 
 paginationItems.forEach((item) => {
 	item.addEventListener('click', (e) => {

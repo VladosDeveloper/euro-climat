@@ -1,7 +1,7 @@
 .main {
     position: relative;
     width: min(1920px, 100%);
-    min-height: 663px;
+    min-height: 100vh;
     background-image: url("../../assets/main-block-background.png");
     background-size: cover;
     background-position: center;
