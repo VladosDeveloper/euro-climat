@@ -23,3 +23,7 @@
 /*  catalog page styles  */
 @import "catalog-page/breadcrumbs.css";
 @import "catalog-page/product-catalog.css";
+/*--------------------------*/
+
+/*  product page styles  */
+@import "product-page/product-page.styles.css";

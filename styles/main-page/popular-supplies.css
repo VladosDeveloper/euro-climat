@@ -1,6 +1,12 @@
 .popular-supplies {
+    position: relative;
     margin-top: 129px;
     padding: 0 5px;
+
+    background-image: url("../../assets/popular-sup.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 150px;
 }
 
 .popular-supplies__controls {

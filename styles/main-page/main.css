@@ -80,7 +80,6 @@
     border-radius: 50%;
     border: 3px solid #38aafc;
     background-color: transparent;
-
 }
 
 .selected::after {

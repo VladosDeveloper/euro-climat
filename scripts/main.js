@@ -8,48 +8,59 @@ const resetForm = document.querySelector('.choose-conditioner__confirm-setting__
 const form = document.querySelector('.choose-conditioner__form')
 const likeBtn = document.querySelectorAll('.svg-heart')
 
-new Swiper('.partners-swiper', {
-	loop: true,
-	slidesPerView: 4,
-	centeredSlides: true,
-	spaceBetween: 30,
-	navigation: {
-		nextEl: '.partner-list__next-item',
-		prevEl: '.partner-list__prev-item',
-	},
-	breakpoints: {
-		320: {
-			slidesPerView: 2,
-			spaceBetween: 20
+const breadCrumbsList = document.querySelector('#product-breadcrumbs__list')
+const lastBreadItem = breadCrumbsList?.lastElementChild
+
+document.addEventListener('DOMContentLoaded', () => {
+	new Swiper('.partners-swiper', {
+		loop: true,
+		slidesPerView: 4,
+		centeredSlides: true,
+		spaceBetween: 30,
+		navigation: {
+			nextEl: '.partner-list__next-item',
+			prevEl: '.partner-list__prev-item',
 		},
-		768: {
-			slidesPerView: 3,
-			spaceBetween: 30
-		},
-		1024: {
-			slidesPerView: 4,
-			spaceBetween: 40
+		breakpoints: {
+			320: {
+				slidesPerView: 2,
+				spaceBetween: 20
+			},
+			768: {
+				slidesPerView: 3,
+				spaceBetween: 30
+			},
+			1024: {
+				slidesPerView: 4,
+				spaceBetween: 40
+			}
 		}
-	}
-});
+	});
+})
+
 
 const startWidth = window.innerWidth;
 const title = document.getElementById('popular-supplies__title')
-if (title) {
-	window.addEventListener('resize', (e) => {
-		const currentWidth = e.currentTarget.innerWidth
-		checkSize(currentWidth)
-		
-	})
-	checkSize(startWidth)
-}
+
+window.addEventListener('resize', (e) => {
+	const currentWidth = e.currentTarget.innerWidth
+	checkSize(currentWidth)
+})
+checkSize(startWidth)
 
 
 function checkSize(size) {
-	if (size <= 560) {
-		title.innerText = 'Популярное'
+	if (title) {
+		if (size <= 560) {
+			title.innerText = 'Популярное'
+		} else {
+			title.innerText = 'Популярные товары'
+		}
+	}
+	if (size < 811) {
+		lastBreadItem?.remove()
 	} else {
-		title.innerText = 'Популярные товары'
+		breadCrumbsList?.append(lastBreadItem)
 	}
 }
 
@@ -66,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Обработчики для точек пагинации
 	document.querySelectorAll('.main__info-dots__item').forEach(dot => {
 		dot.addEventListener('click', function () {
-			console.log('clicked');
 			const slideIndex = parseInt(this.getAttribute('data-slide'));
 			
 			// Убираем класс selected у всех точек
@@ -78,17 +88,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			this.classList.add('selected');
 			
 			// Переключаем слайд
-			textSwiper.slideTo(slideIndex);
+			if (textSwiper.el !== '.text-swiper') {
+				textSwiper.slideTo(slideIndex);
+			}
 			
-			// // Переключаем изображение (если нужно)
-			// const images = document.querySelectorAll('.main-image');
-			// images.forEach(img => img.classList.remove('active'));
-			// images[slideIndex].classList.add('active');
 		});
 	});
 });
 
-export const counter = () => {
+const counter = () => {
 	// Находим все блоки счетчиков на странице
 	const allCounters = document.querySelectorAll('.sales__element__user-actions');
 	
@@ -136,7 +144,7 @@ resetForm?.addEventListener('click', (e) => {
 	form.reset()
 })
 
-export const toggleVisibilityModal = () => {
+const toggleVisibilityModal = () => {
 	
 	openNavBar.addEventListener('click', () => {
 		navBar.classList.toggle('hidden');
@@ -156,15 +164,13 @@ export const toggleVisibilityModal = () => {
 	
 }
 
-export const setSvgButtonColor = () => {
+const setSvgButtonColor = () => {
 	likeBtn.forEach((btn) => {
 		btn.addEventListener('click', function () {
 			btn.classList.toggle('active');
 		});
 	})
 }
-
-
 
 
 setSvgButtonColor();

@@ -3,9 +3,10 @@
     width: min(1920px, 100%);
     margin: 96px auto 0;
     min-height: 360px;
-    background-image: url("../../assets/sales-background.png");
+    background-image: url("../../assets/bg-footer.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: 0 bottom;
     padding-top: 64px;
     overflow: hidden;
 }
