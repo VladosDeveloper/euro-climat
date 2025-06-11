@@ -12,11 +12,15 @@
 <body>
 
 <header class="header container">
-	<img src="assets/logo.png" alt="Logo" class="header__logo">
+	<a href="home.html">
+		<img src="./assets/logo.png" alt="Logo" class="header__logo">
+	</a>
 	<form action="" class="header__form">
 		<label for="search-product" class="header__form-search__label">
 			<input class="header__form-search" id="search-product" type="search" placeholder="Поиск товара">
-			<img src="assets/search.png" alt="search icon" class="header__form-search__icon">
+			<button type="submit" class="header__form-search__submit-btn">
+				<img src="assets/search.png" alt="search icon" class="header__form-search__icon">
+			</button>
 		</label>
 
 		<button class="header__button-submit">Заказать звонок</button>

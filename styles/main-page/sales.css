@@ -76,6 +76,25 @@
     align-items: flex-start;
 }
 
+.sales-marker {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: #dc092e;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+}
+
 .add-to-favourite-icon {
     position: relative;
     display: flex;

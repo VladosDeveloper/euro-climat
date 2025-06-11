@@ -165,9 +165,18 @@ const toggleVisibilityModal = () => {
 }
 
 const setSvgButtonColor = () => {
-	likeBtn.forEach((btn) => {
+	likeBtn.forEach((btn,index) => {
+		console.log(btn)
 		btn.addEventListener('click', function () {
+			const outline = document.querySelectorAll('.heart-outline')
+			// debugger
 			btn.classList.toggle('active');
+			if (btn.classList.contains('active')) {
+				outline[index]?.setAttribute('stroke', '1px');
+			} else {
+				outline[index]?.removeAttribute('stroke');
+			}
+
 		});
 	})
 }

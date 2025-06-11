@@ -6,6 +6,10 @@
     font-family: "Segoe UI", sans-serif;
 }
 
+.header + a {
+
+}
+
 .header__logo {
     width: 110px;
     height: 39px;
@@ -41,11 +45,22 @@
     color: #787878;
 }
 
-.header__form-search__icon {
+.header__form-search__submit-btn {
     position: absolute;
-    top: 50%;
-    right: 17px;
-    translate: 0 -50%;
+    height: 32px;
+    width: 32px;
+    right: 11px;
+    top: 4px;
+    border: none;
+    background-color: transparent;
+}
+
+.header__form-search__icon {
+    position: relative;
+    z-index: 12112112;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .header__button-submit,

@@ -83,13 +83,18 @@
         position: relative;
 
         & .heart-path {
-            stroke: currentColor;
-            stroke-width: 1px;
-            fill-rule: nonzero;
+            /*stroke: currentColor;*/
+            /*fill-rule: nonzero;*/
             fill: white;
+        }
+        & .heart-outline {
+            stroke: none;
         }
         &.active .heart-path {
             stroke: red;
+        }
+        &.active .heart-outline {
+            display: block;
         }
 
     }
